@@ -1,0 +1,41 @@
+name: Deploy to Tencent Cloud
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch: {}   # 支持手动触发
+
+concurrency:
+  group: deploy-portal
+  cancel-in-progress: false   # 部署不并发、不取消，排队执行
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy static portal via SSH
+        uses: appleboy/ssh-action@v1.2.2
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            set -e
+            cd /opt/ai-platform-portal
+            echo "[INFO] git pull: $(date '+%F %T')"
+            git pull origin main
+            echo "[INFO] 校验 index.html"
+            test -f index.html && echo "[INFO] index.html OK"
+
+      - name: Health check (on server)
+        uses: appleboy/ssh-action@v1.2.2
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            set -e
+            code=$(curl -s -o /dev/null -w '%{http_code}' --max-time 10 -H "Host: qiaokeshen.asia" http://127.0.0.1/)
+            echo "HEALTH qiaokeshen.asia -> $code"
+            if [ "$code" != "200" ]; then echo "[ERROR] 门户未返回 200"; exit 1; fi
+            echo "[INFO] 全部健康检查通过，部署完成"
