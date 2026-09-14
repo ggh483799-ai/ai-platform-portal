@@ -1,6 +1,6 @@
 # AI 中台 · 统一门户
 
-企业 AI 应用矩阵的统一演示入口，聚合三个已上线项目（P1/P2/P4），呈现「从 0 到 1 把 AI 能力做成产品」的故事线。
+企业 AI 应用矩阵的统一演示入口，聚合四个已上线项目（P1/P2/P4/P5），呈现「从 0 到 1 把 AI 能力做成产品」的故事线。
 
 ## 线上地址
 
@@ -10,6 +10,7 @@
 | P1 知识库 RAG | https://rag.qiaokeshen.asia/ |
 | P2 多 Agent 助手 | https://sc.qiaokeshen.asia/ |
 | P4 合同智能审核 | https://cr.qiaokeshen.asia/ |
+| P5 车牌识别 | https://lpr.qiaokeshen.asia/ |
 
 ## 项目矩阵
 
@@ -18,12 +19,14 @@
 | P1 企业知识库 RAG | 数据底座（知识注入） | Flask + Milvus + BM25/向量混合检索 + RRF + bge-reranker + SSE | 召回 62%→89%，1.6 万 chunks |
 | P2 供应链多 Agent 助手 | 业务应用层（Agent 落地） | FastAPI + LangGraph + Pydantic + 微服务 | 完成率 85%→94%，15min→30s |
 | P4 采购合同审核 | 垂直场景（行业应用） | FastAPI + OCR + LLM 结构化抽取 + YAML 规则引擎 | F1 95.2%，40min→3min |
+| P5 车牌识别 · 实时视频流 | 实时视觉（视频流理解） | YOLOv8s + LPRNet + hyperlpr3(ONNX) + OpenCV + FastAPI + MJPEG | 单次识别 491→130ms，169 单测全绿（CPU 实测） |
 
 ## 技术说明
 
 - 纯静态 HTML（零依赖、零构建），nginx 静态 serve。
-- 三个子域项目均通过 nginx 反代 + Let's Encrypt 证书实现 HTTPS。
+- 四个子域项目均通过 nginx 反代 + Let's Encrypt 证书实现 HTTPS。
 - 线上演示采用「新标签页打开」规避 iframe 跨域/混合内容问题；页面内嵌架构图与量化指标卡作离线兜底。
+- **P5 指标口径**：均为本机 CPU 实测值（`gpu:false`）。项目自研级联权重待 GPU 训练，精度类指标（车辆 mAP / 整牌准确率）属待办，不计入成果。
 
 ## CI/CD 部署
 

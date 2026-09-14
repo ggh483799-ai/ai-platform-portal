@@ -126,9 +126,11 @@
   .tab[data-p="p1"].active { border-color: var(--blue); }   .tab[data-p="p1"].active .dot { background: var(--blue); }
   .tab[data-p="p2"].active { border-color: var(--violet); } .tab[data-p="p2"].active .dot { background: var(--violet); }
   .tab[data-p="p4"].active { border-color: var(--orange); } .tab[data-p="p4"].active .dot { background: var(--orange); }
+  .tab[data-p="p5"].active { border-color: var(--teal); }   .tab[data-p="p5"].active .dot { background: var(--teal); }
   .tab[data-p="p1"].active .num { background: var(--blue-soft); color: var(--blue); }
   .tab[data-p="p2"].active .num { background: var(--violet-soft); color: var(--violet); }
   .tab[data-p="p4"].active .num { background: var(--orange-soft); color: var(--orange); }
+  .tab[data-p="p5"].active .num { background: var(--teal-soft); color: var(--teal); }
 
   /* ---------- Main / Panels ---------- */
   main { max-width: 1120px; margin: 0 auto; padding: 36px 24px 72px; }
@@ -219,7 +221,8 @@
   .story { margin-top: 56px; }
   .story h2 { font-size: 22px; font-weight: 800; text-align: center; letter-spacing: -.3px; }
   .story .sub { text-align: center; color: var(--ink-2); margin-top: 8px; font-size: 15px; }
-  .story-flow { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 30px; position: relative; }
+  .story-flow { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 30px; position: relative; }
+  @media (max-width: 1000px) { .story-flow { grid-template-columns: repeat(2, 1fr); } }
   @media (max-width: 720px) { .story-flow { grid-template-columns: 1fr; } }
   .story-node {
     background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
@@ -229,6 +232,7 @@
   .story-node h3 { font-size: 17px; font-weight: 800; margin: 8px 0 6px; }
   .story-node p { font-size: 13.5px; color: var(--ink-2); }
   .story-arrow { position: absolute; top: 50%; right: -14px; transform: translateY(-50%); z-index: 2; color: var(--ink-3); font-size: 20px; }
+  @media (max-width: 1000px) { .story-arrow { display: none; } }
   @media (max-width: 720px) { .story-arrow { display: none; } }
 
   footer { border-top: 1px solid var(--line); padding: 30px 24px 46px; text-align: center; color: var(--ink-3); font-size: 13px; background: #fff; }
@@ -254,12 +258,13 @@
 <section class="hero">
   <div class="hero-inner">
     <span class="kicker">◆ 企业 AI 应用 · 统一演示入口</span>
-    <h1>一套 AI 中台，<span class="grad">三个核心应用</span><br>从 0 到 1 把 AI 能力做成产品</h1>
-    <p class="sub">覆盖「数据底座 → 业务应用 → 行业纵深」三层能力：知识库 RAG、多 Agent 协同助手、合同智能审核，共用一套工程化基础设施与可观测体系。</p>
+    <h1>一套 AI 中台，<span class="grad">四个核心应用</span><br>从 0 到 1 把 AI 能力做成产品</h1>
+    <p class="sub">覆盖「数据底座 → 业务应用 → 行业纵深 → 实时视觉」四层能力：知识库 RAG、多 Agent 协同助手、合同智能审核、车牌实时识别，共用一套工程化基础设施与可观测体系。</p>
     <div class="pills">
       <span class="pill"><i style="background:#60a5fa"></i>P1 知识库 RAG · 数据底座</span>
       <span class="pill"><i style="background:#a78bfa"></i>P2 多 Agent 助手 · 业务应用</span>
       <span class="pill"><i style="background:#fb923c"></i>P4 合同审核 · 行业纵深</span>
+      <span class="pill"><i style="background:#2dd4bf"></i>P5 车牌识别 · 实时视觉</span>
     </div>
   </div>
 </section>
@@ -274,6 +279,9 @@
     </button>
     <button class="tab" data-p="p4" onclick="switchTab('p4')">
       <span class="dot"></span><span class="num">P4</span>合同智能审核
+    </button>
+    <button class="tab" data-p="p5" onclick="switchTab('p5')">
+      <span class="dot"></span><span class="num">P5</span>车牌识别
     </button>
   </div>
 </div>
@@ -589,10 +597,109 @@
     </div>
   </section>
 
+  <!-- ==================== P5 ==================== -->
+  <section class="panel" id="panel-p5">
+    <div class="panel-head">
+      <div class="icon" style="background:linear-gradient(135deg,#14b8a6,#0d9488)">🚗</div>
+      <div class="title-wrap">
+        <h2>车牌识别 · 实时视频流</h2>
+        <div class="tagline">摄像头 / RTSP / 网页视频流进去，结构化车牌事件出来——是边播边识别，不是离线批处理</div>
+        <div class="badges">
+          <span class="badge" style="background:var(--teal-soft);color:var(--teal)">实时视觉 · 视频流理解</span>
+          <span class="badge" style="background:#f0fdf4;color:#16a34a">三处齐备</span>
+          <span class="badge" style="background:var(--line);color:var(--ink-2)">CPU 实测 · 未做 GPU 加速</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid">
+      <div class="card">
+        <h3>系统架构 · 四层</h3>
+        <div class="arch">
+          <div class="arch-node accent" style="border-left-color:var(--teal)">
+            <div class="n-label" style="color:var(--teal)">① 视频接入层</div>
+            <div class="n-body">本机摄像头（<code>DSHOW</code> 首帧 118ms · 只认能读到帧的设备）· RTSP / RTMP · 本地视频 · 网页视频链接（yt-dlp 解析直链）· 首帧看门狗</div>
+          </div>
+          <div class="arch-arrow">↓</div>
+          <div class="arch-node accent" style="border-left-color:var(--teal)">
+            <div class="n-label" style="color:var(--teal)">② 检测层</div>
+            <div class="n-body"><code>YOLOv8s</code> 车辆检测 → 车牌定位 → 透视矫正 → 暗光/反光增强 → 车牌小图裁剪</div>
+          </div>
+          <div class="arch-arrow">↓</div>
+          <div class="arch-node accent" style="border-left-color:var(--teal)">
+            <div class="n-label" style="color:var(--teal)">③ 识别层 · 双路径兜底</div>
+            <div class="n-body"><code>LPRNet</code>（CTC，自研级联）· <code>hyperlpr3</code>（ONNX 兜底）→ 省份简称纠错 → 置信度过滤 → 三层标注（车牌 / 车辆行人 / 疑似车牌）</div>
+          </div>
+          <div class="arch-arrow">↓</div>
+          <div class="arch-node accent" style="border-left-color:var(--teal)">
+            <div class="n-label" style="color:var(--teal)">④ 输出层</div>
+            <div class="n-body">跨帧 <code>3s</code> 时间窗去重（上报置信度最高帧）→ 事件 CSV / JSONL + 标注视频 + 车牌截图 → <code>MJPEG</code> 推流回浏览器 · 60s 无人消费自动停</div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="card">
+          <h3>技术栈</h3>
+          <div class="tags">
+            <span class="tag" style="background:var(--teal-soft);color:var(--teal)">YOLOv8s</span>
+            <span class="tag" style="background:var(--teal-soft);color:var(--teal)">LPRNet</span>
+            <span class="tag" style="background:var(--teal-soft);color:var(--teal)">hyperlpr3</span>
+            <span class="tag" style="background:var(--teal-soft);color:var(--teal)">ONNX Runtime</span>
+            <span class="tag" style="background:var(--teal-soft);color:var(--teal)">OpenCV</span>
+            <span class="tag" style="background:var(--teal-soft);color:var(--teal)">FastAPI</span>
+            <span class="tag" style="background:var(--teal-soft);color:var(--teal)">MJPEG 推流</span>
+            <span class="tag" style="background:var(--teal-soft);color:var(--teal)">Docker Compose</span>
+          </div>
+        </div>
+        <div class="card" style="margin-top:16px">
+          <h3>量化成果 · CPU 实测</h3>
+          <div class="metrics">
+            <div class="metric">
+              <div class="m-value" style="color:var(--teal)">491 <span class="arrow">→</span> 130ms</div>
+              <div class="m-label">单次识别耗时 · ONNX 线程池调优</div>
+            </div>
+            <div class="metric">
+              <div class="m-value" style="color:var(--teal)">8–12ms</div>
+              <div class="m-label">单牌识别核心（车牌检测+识别）</div>
+            </div>
+            <div class="metric">
+              <div class="m-value" style="color:var(--teal)">6 fps</div>
+              <div class="m-label">实时画面 · 本机摄像头 640×480</div>
+            </div>
+            <div class="metric">
+              <div class="m-value" style="color:var(--teal)">169</div>
+              <div class="m-label">单测全绿（2026-09 实跑取证）</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:24px">
+      <h3>核心难点与解法 · 面试亮点</h3>
+      <ul class="hl">
+        <li><span class="idx" style="background:var(--teal)">1</span>
+          <div class="txt"><b>自研级联权重未训练，链路不能空转</b><span>检车 → 检牌 → 矫正 → LPRNet 链路已完整，但权重待 GPU 训练；加 auto 模式让 hyperlpr3（ONNX）在级联无结果时兜底，真实图片当场读出车牌号 —— <span class="quote" style="color:var(--teal)">先让链路跑通，再让模型变好</span></span></div></li>
+        <li><span class="idx" style="background:var(--teal)">2</span>
+          <div class="txt"><b>实时画面只有 0.7 fps</b><span>识别原本写在读帧循环里，慢推理把画面一起拖死；改为独立识别线程 + 队列容量 1（只认最新帧，中间帧直接丢），画面回到 5 fps —— <span class="quote" style="color:var(--teal)">实时系统里，过期结果没有价值</span></span></div></li>
+        <li><span class="idx" style="background:var(--teal)">3</span>
+          <div class="txt"><b>CPU 上单次识别要 500–600 ms</b><span>定位到 ONNX 多会话线程池互相踩踏，而不是模型慢；把 ORT 会话收敛为单线程，同一段视频 491 ms 降到 130 ms —— <span class="quote" style="color:var(--teal)">瓶颈不在模型，在线程池</span></span></div></li>
+        <li><span class="idx" style="background:var(--teal)">4</span>
+          <div class="txt"><b>摄像头点「开始」后一直黑屏</b><span>同一台机器同一设备，默认后端首次取帧要 15s+，显式 DSHOW 只要 118ms；再把播放节奏原点改到首帧，避免首帧慢被误判成落后而一口气丢 444 帧 —— <span class="quote" style="color:var(--teal)">慢的不是摄像头，是后端选错了</span></span></div></li>
+      </ul>
+    </div>
+
+    <div class="actions">
+      <a class="btn btn-primary" style="background:linear-gradient(135deg,#14b8a6,#0d9488)" href="https://lpr.qiaokeshen.asia/" target="_blank" rel="noopener">打开线上演示 <span class="ext">↗</span></a>
+      <a class="btn btn-ghost" href="https://github.com/ggh483799-ai/plate-recognition" target="_blank" rel="noopener">GitHub 仓库 <span class="ext">↗</span></a>
+    </div>
+  </section>
+
   <!-- ==================== Storyline ==================== -->
   <section class="story" id="story">
     <h2>一条主线：从 0 到 1 把 AI 能力做成产品</h2>
-    <p class="sub">三个项目业务上同属一家「供应链/制造企业」，逻辑自洽，覆盖 JD 全链路能力</p>
+    <p class="sub">四个项目业务上同属一家「供应链/制造企业」，逻辑自洽，覆盖 JD 全链路能力</p>
     <div class="story-flow">
       <div class="story-node">
         <div class="stage" style="color:var(--blue)">Layer 1 · 数据底座</div>
@@ -608,8 +715,13 @@
       <div class="story-node">
         <div class="stage" style="color:var(--orange)">Layer 3 · 行业纵深</div>
         <h3>P4 合同智能审核</h3>
-        <p>最后往「文档理解」纵深走——OCR + 结构化抽取 + 规则引擎，把法务审核从 40 分钟压到 3 分钟。</p>
+        <p>再往「文档理解」纵深走——OCR + 结构化抽取 + 规则引擎，把法务审核从 40 分钟压到 3 分钟。</p>
         <span class="story-arrow">→</span>
+      </div>
+      <div class="story-node">
+        <div class="stage" style="color:var(--teal)">Layer 4 · 实时视觉</div>
+        <h3>P5 车牌识别</h3>
+        <p>最后把 AI 从「会读」推到「会看」——给园区出入口接上摄像机，视频流边播边识别，车辆进出直接落成结构化事件。</p>
       </div>
     </div>
   </section>
@@ -618,8 +730,8 @@
 
 <footer>
   <div class="note">
-    ◆ 统一口径：三项目在「本地 + 腾讯云 + GitHub」三处均齐备，线上演示依赖远程实例可用性，离线场景可用架构图与量化指标卡讲解。<br>
-    数字口径全局一致（召回 62%→89% · 完成率 85%→94% · F1 95.2%），面试演示前建议先探活线上服务。
+    ◆ 统一口径：四项目在「本地 + 腾讯云 + GitHub」三处均齐备，线上演示依赖远程实例可用性，离线场景可用架构图与量化指标卡讲解。<br>
+    数字口径全局一致（召回 62%→89% · 完成率 85%→94% · F1 95.2% · 单次识别 491→130ms）。P5 为 CPU 实测口径（未做 GPU 加速），精度类指标属待训练项，不计入成果。面试演示前建议先探活线上服务。
   </div>
 </footer>
 
