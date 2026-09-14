@@ -147,6 +147,19 @@
   .panel-head .title-wrap h2 { font-size: 26px; font-weight: 800; letter-spacing: -.3px; }
   .panel-head .title-wrap .tagline { color: var(--ink-2); font-size: 15px; margin-top: 4px; }
   .panel-head .badges { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+
+  /* 面板头部右上角入口按钮（访问线上站点 / GitHub 仓库），与标题同一行 */
+  .panel-head .title-wrap { flex: 1 1 auto; min-width: 0; }
+  .panel-head .actions {
+    margin-top: 0; margin-left: auto; flex: 0 0 auto;
+    gap: 10px; align-items: flex-start;
+  }
+  .panel-head .actions .btn { padding: 10px 16px; font-size: 13.5px; border-radius: 10px; }
+  .panel-head .actions .btn .ext { font-size: 11px; }
+  @media (max-width: 1000px) {
+    .panel-head { flex-wrap: wrap; }
+    .panel-head .actions { margin-left: 0; flex-basis: 100%; margin-top: 16px; }
+  }
   .badge {
     font-size: 12px; font-weight: 600; padding: 4px 11px; border-radius: 999px;
   }
@@ -300,6 +313,11 @@
           <span class="badge" style="background:#f0fdf4;color:#16a34a">已上线运行</span>
         </div>
       </div>
+
+      <div class="actions">
+        <a class="btn btn-primary" style="background:linear-gradient(135deg,#3b82f6,#2563eb)" href="https://rag.qiaokeshen.asia/" target="_blank" rel="noopener">访问线上站点 <span class="ext">↗</span></a>
+        <a class="btn btn-ghost" href="https://github.com/ggh483799-ai/enterprise-knowledge-rag" target="_blank" rel="noopener">GitHub 仓库 <span class="ext">↗</span></a>
+      </div>
     </div>
 
     <div class="grid">
@@ -385,11 +403,6 @@
           <div class="txt"><b>检索效果难量化</b><span>RAGAS 评估（faithfulness / context recall）+ 200 条标注集 —— <span class="quote" style="color:var(--blue)">把 RAG 做成了可回归的工程</span></span></div></li>
       </ul>
     </div>
-
-    <div class="actions">
-      <a class="btn btn-primary" style="background:linear-gradient(135deg,#3b82f6,#2563eb)" href="https://rag.qiaokeshen.asia/" target="_blank" rel="noopener">访问线上站点 <span class="ext">↗</span></a>
-      <a class="btn btn-ghost" href="https://github.com/ggh483799-ai/enterprise-knowledge-rag" target="_blank" rel="noopener">GitHub 仓库 <span class="ext">↗</span></a>
-    </div>
   </section>
 
   <!-- ==================== P2 ==================== -->
@@ -403,6 +416,11 @@
           <span class="badge" style="background:var(--violet-soft);color:var(--violet)">业务应用层 · Agent 落地</span>
           <span class="badge" style="background:#f0fdf4;color:#16a34a">已上线运行</span>
         </div>
+      </div>
+
+      <div class="actions">
+        <a class="btn btn-primary" style="background:linear-gradient(135deg,#8b5cf6,#7c3aed)" href="https://sc.qiaokeshen.asia/" target="_blank" rel="noopener">访问线上站点 <span class="ext">↗</span></a>
+        <a class="btn btn-ghost" href="https://github.com/ggh483799-ai/supply-chain-mock-services" target="_blank" rel="noopener">GitHub 仓库 <span class="ext">↗</span></a>
       </div>
     </div>
 
@@ -487,11 +505,6 @@
           <div class="txt"><b>循环调用不收敛</b><span>LangGraph 最大迭代步数 + 死循环检测</span></div></li>
       </ul>
     </div>
-
-    <div class="actions">
-      <a class="btn btn-primary" style="background:linear-gradient(135deg,#8b5cf6,#7c3aed)" href="https://sc.qiaokeshen.asia/" target="_blank" rel="noopener">访问线上站点 <span class="ext">↗</span></a>
-      <a class="btn btn-ghost" href="https://github.com/ggh483799-ai/supply-chain-mock-services" target="_blank" rel="noopener">GitHub 仓库 <span class="ext">↗</span></a>
-    </div>
   </section>
 
   <!-- ==================== P4 ==================== -->
@@ -505,6 +518,11 @@
           <span class="badge" style="background:var(--orange-soft);color:var(--orange)">垂直场景 · 行业应用</span>
           <span class="badge" style="background:#f0fdf4;color:#16a34a">已上线运行</span>
         </div>
+      </div>
+
+      <div class="actions">
+        <a class="btn btn-primary" style="background:linear-gradient(135deg,#fb923c,#f97316)" href="https://cr.qiaokeshen.asia/" target="_blank" rel="noopener">访问线上站点 <span class="ext">↗</span></a>
+        <a class="btn btn-ghost" href="https://github.com/ggh483799-ai/contract-review" target="_blank" rel="noopener">GitHub 仓库 <span class="ext">↗</span></a>
       </div>
     </div>
 
@@ -590,11 +608,6 @@
           <div class="txt"><b>审查规则随业务变化</b><span>规则引擎外置配置化（YAML），不改代码即可更新红线 —— <span class="quote" style="color:var(--orange)">规则外置，改红线不改代码</span></span></div></li>
       </ul>
     </div>
-
-    <div class="actions">
-      <a class="btn btn-primary" style="background:linear-gradient(135deg,#fb923c,#f97316)" href="https://cr.qiaokeshen.asia/" target="_blank" rel="noopener">访问线上站点 <span class="ext">↗</span></a>
-      <a class="btn btn-ghost" href="https://github.com/ggh483799-ai/contract-review" target="_blank" rel="noopener">GitHub 仓库 <span class="ext">↗</span></a>
-    </div>
   </section>
 
   <!-- ==================== P5 ==================== -->
@@ -609,6 +622,11 @@
           <span class="badge" style="background:#f0fdf4;color:#16a34a">已上线运行</span>
           <span class="badge" style="background:var(--line);color:var(--ink-2)">纯 CPU 部署 · 无需 GPU</span>
         </div>
+      </div>
+
+      <div class="actions">
+        <a class="btn btn-primary" style="background:linear-gradient(135deg,#14b8a6,#0d9488)" href="https://lpr.qiaokeshen.asia/" target="_blank" rel="noopener">访问线上站点 <span class="ext">↗</span></a>
+        <a class="btn btn-ghost" href="https://github.com/ggh483799-ai/plate-recognition" target="_blank" rel="noopener">GitHub 仓库 <span class="ext">↗</span></a>
       </div>
     </div>
 
@@ -688,11 +706,6 @@
         <li><span class="idx" style="background:var(--teal)">4</span>
           <div class="txt"><b>摄像头点「开始」后一直黑屏</b><span>同一台机器同一设备，默认后端首次取帧要 15s+，显式 DSHOW 只要 118ms；再把播放节奏原点改到首帧，避免首帧慢被误判成落后而一口气丢 444 帧 —— <span class="quote" style="color:var(--teal)">慢的不是摄像头，是后端选错了</span></span></div></li>
       </ul>
-    </div>
-
-    <div class="actions">
-      <a class="btn btn-primary" style="background:linear-gradient(135deg,#14b8a6,#0d9488)" href="https://lpr.qiaokeshen.asia/" target="_blank" rel="noopener">访问线上站点 <span class="ext">↗</span></a>
-      <a class="btn btn-ghost" href="https://github.com/ggh483799-ai/plate-recognition" target="_blank" rel="noopener">GitHub 仓库 <span class="ext">↗</span></a>
     </div>
   </section>
 
