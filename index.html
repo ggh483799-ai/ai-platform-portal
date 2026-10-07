@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>个人 AI 项目集 | 四个端到端 AI 应用（RAG · 多 Agent · 文档审核 · 实时视觉）</title>
+<title>个人 AI 项目集 | 五个端到端 AI 应用（RAG · 多 Agent · 文档审核 · 实时视觉 · 智能体商城）</title>
 <style>
   :root {
     --bg: #f6f7fb;
@@ -24,6 +24,8 @@
     --orange-soft: #fff3e8;
     --teal: #0d9488;
     --teal-soft: #e7f8f6;
+    --cyan: #0891b2;
+    --cyan-soft: #ecfeff;
 
     --grad-hero: linear-gradient(135deg, #1e1b4b 0%, #312e81 34%, #4338ca 68%, #4f46e5 100%);
   }
@@ -127,10 +129,12 @@
   .tab[data-p="p2"].active { border-color: var(--violet); } .tab[data-p="p2"].active .dot { background: var(--violet); }
   .tab[data-p="p4"].active { border-color: var(--orange); } .tab[data-p="p4"].active .dot { background: var(--orange); }
   .tab[data-p="p5"].active { border-color: var(--teal); }   .tab[data-p="p5"].active .dot { background: var(--teal); }
+  .tab[data-p="p6"].active { border-color: var(--cyan); }   .tab[data-p="p6"].active .dot { background: var(--cyan); }
   .tab[data-p="p1"].active .num { background: var(--blue-soft); color: var(--blue); }
   .tab[data-p="p2"].active .num { background: var(--violet-soft); color: var(--violet); }
   .tab[data-p="p4"].active .num { background: var(--orange-soft); color: var(--orange); }
   .tab[data-p="p5"].active .num { background: var(--teal-soft); color: var(--teal); }
+  .tab[data-p="p6"].active .num { background: var(--cyan-soft); color: var(--cyan); }
 
   /* ---------- Main / Panels ---------- */
   main { max-width: 1120px; margin: 0 auto; padding: 36px 24px 72px; }
@@ -270,14 +274,15 @@
 
 <section class="hero">
   <div class="hero-inner">
-    <span class="kicker">◆ 个人项目作品集 · 四个端到端 AI 应用</span>
-    <h1>四个 AI 项目，<span class="grad">都真跑在线上</span><br>从需求到部署，端到端一个人做完</h1>
-    <p class="sub">四类场景各落地一个：知识库 RAG、多 Agent 协同助手、合同智能审核、车牌实时识别。架构设计、编码、容器化部署与 CI/CD 流水线均由我个人独立完成——每个项目都开源在 GitHub，也都能点开线上直接使用。</p>
+    <span class="kicker">◆ 个人项目作品集 · 五个端到端 AI 应用</span>
+    <h1>五个 AI 项目，<span class="grad">都真跑在线上</span><br>从需求到部署，端到端一个人做完</h1>
+    <p class="sub">五类场景各落地一个：知识库 RAG、多 Agent 协同助手、合同智能审核、车牌实时识别，以及一套跑通完整交易闭环的智能体编排商城。架构设计、编码、容器化部署与 CI/CD 流水线均由我个人独立完成——每个项目都开源在 GitHub，也都能点开线上直接使用。</p>
     <div class="pills">
       <span class="pill"><i style="background:#60a5fa"></i>P1 知识库 RAG · 数据底座</span>
       <span class="pill"><i style="background:#a78bfa"></i>P2 多 Agent 助手 · 业务应用</span>
       <span class="pill"><i style="background:#fb923c"></i>P4 合同审核 · 行业纵深</span>
       <span class="pill"><i style="background:#2dd4bf"></i>P5 车牌识别 · 实时视觉</span>
+      <span class="pill"><i style="background:#22d3ee"></i>P6 智能体商城 · 交易与编排</span>
     </div>
   </div>
 </section>
@@ -295,6 +300,9 @@
     </button>
     <button class="tab" data-p="p5" onclick="switchTab('p5')">
       <span class="dot"></span><span class="num">P5</span>车牌识别
+    </button>
+    <button class="tab" data-p="p6" onclick="switchTab('p6')">
+      <span class="dot"></span><span class="num">P6</span>智能体商城
     </button>
   </div>
 </div>
@@ -705,10 +713,107 @@
     </div>
   </section>
 
+  <!-- ==================== P6 ==================== -->
+  <section class="panel" id="panel-p6">
+    <div class="panel-head">
+      <div class="icon" style="background:linear-gradient(135deg,#22d3ee,#0891b2)">🛍️</div>
+      <div class="title-wrap">
+        <h2>AgentMall · 智能体编排商城</h2>
+        <div class="tagline">从商品检索到售后审批的完整交易闭环，上面再压一层只读的 AI 客服编排——能查、能算，但改不动数据</div>
+        <div class="badges">
+          <span class="badge" style="background:var(--cyan-soft);color:var(--cyan)">业务系统 · 交易闭环</span>
+          <span class="badge" style="background:#f0fdf4;color:#16a34a">已上线运行</span>
+          <span class="badge" style="background:var(--line);color:var(--ink-2)">Spring Boot 微服务 + FastAPI 编排</span>
+        </div>
+      </div>
+
+      <div class="actions">
+        <a class="btn btn-primary" style="background:linear-gradient(135deg,#22d3ee,#0891b2)" href="https://mall.qiaokeshen.asia/" target="_blank" rel="noopener">访问线上站点 <span class="ext">↗</span></a>
+      </div>
+    </div>
+
+    <div class="grid">
+      <div class="card">
+        <h3>系统架构 · 四层</h3>
+        <div class="arch">
+          <div class="arch-node accent" style="border-left-color:var(--cyan)">
+            <div class="n-label" style="color:var(--cyan)">① 前端与 BFF 层</div>
+            <div class="n-body">零依赖静态 SPA（离线可用）· <code>mall-core</code>：商品 / 购物车 / 结算 / 售后 / 会员 / 运营后台 / BFF 同进程</div>
+          </div>
+          <div class="arch-arrow">↓</div>
+          <div class="arch-node accent" style="border-left-color:var(--cyan)">
+            <div class="n-label" style="color:var(--cyan)">② 交易域 · TCC + Saga</div>
+            <div class="n-body"><code>inventory</code> 库存 TCC 三接口（Try / Confirm / Cancel）· <code>order</code> 订单 Saga 协调者兼金额权威 · <code>payment</code> Mock 渠道（成功 / 失败 / 超时三剧本可注入）</div>
+          </div>
+          <div class="arch-arrow">↓</div>
+          <div class="arch-node accent" style="border-left-color:var(--cyan)">
+            <div class="n-label" style="color:var(--cyan)">③ 履约与对账层</div>
+            <div class="n-body"><code>ops-scheduler</code> 延迟关单 · 补偿扫描 · 三方对账出差异单；退款金额 ≥200 元自动进人工审批队列</div>
+          </div>
+          <div class="arch-arrow">↓</div>
+          <div class="arch-node accent" style="border-left-color:var(--cyan)">
+            <div class="n-label" style="color:var(--cyan)">④ 智能体编排层</div>
+            <div class="n-body"><code>FastAPI</code> + <code>SSE</code> 逐节点回显编排拓扑；只读工具白名单（订单 / 订单列表 / 库存档位 / 售后），写操作在网关层直接拒绝</div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="card">
+          <h3>技术栈</h3>
+          <div class="tags">
+            <span class="tag" style="background:var(--cyan-soft);color:var(--cyan)">Spring Boot 3.3</span>
+            <span class="tag" style="background:var(--cyan-soft);color:var(--cyan)">Java 17</span>
+            <span class="tag" style="background:var(--cyan-soft);color:var(--cyan)">PostgreSQL 16</span>
+            <span class="tag" style="background:var(--cyan-soft);color:var(--cyan)">Flyway</span>
+            <span class="tag" style="background:var(--cyan-soft);color:var(--cyan)">TCC / Saga / Outbox</span>
+            <span class="tag" style="background:var(--cyan-soft);color:var(--cyan)">FastAPI + SSE</span>
+            <span class="tag" style="background:var(--cyan-soft);color:var(--cyan)">Docker</span>
+          </div>
+        </div>
+        <div class="card" style="margin-top:16px">
+          <h3>量化成果</h3>
+          <div class="metrics">
+            <div class="metric">
+              <div class="m-value" style="color:var(--cyan)">7 / 7</div>
+              <div class="m-label">部署单元全部可运行</div>
+            </div>
+            <div class="metric">
+              <div class="m-value" style="color:var(--cyan)">160</div>
+              <div class="m-label">端到端可判定断言全通过</div>
+            </div>
+            <div class="metric">
+              <div class="m-value" style="color:var(--cyan)">100 并发</div>
+              <div class="m-label">同键幂等：只产生 1 次副作用</div>
+            </div>
+            <div class="metric">
+              <div class="m-value" style="color:var(--cyan)">20/分 · 300/日</div>
+              <div class="m-label">AI 层滑动窗口 + 全局日配额</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:24px">
+      <h3>核心难点与解法</h3>
+      <ul class="hl">
+        <li><span class="idx" style="background:var(--cyan)">1</span>
+          <div class="txt"><b>跨服务扣库存会超卖</b><span>库存走 TCC 三接口 + 幂等记录表，同键并发 100 次只落 1 次副作用；先 release 再 reserve 直接 409 拦住 —— <span class="quote" style="color:var(--cyan)">不靠"代码写对"，靠数据库约束兜底</span></span></div></li>
+        <li><span class="idx" style="background:var(--cyan)">2</span>
+          <div class="txt"><b>订单与支付对不齐、超时单占着库存</b><span>订单做 Saga 协调者 + Outbox 事件驱动补偿；调度器负责延迟关单释放库存，并定期跑三方对账出差异单 —— <span class="quote" style="color:var(--cyan)">不一致要被"发现"，不能只靠"不发生"</span></span></div></li>
+        <li><span class="idx" style="background:var(--cyan)">3</span>
+          <div class="txt"><b>让 LLM 自己筛数值，它会挑"看起来贵的"</b><span>数值条件一律<b>下推 SQL</b>：「990元以上」被解析成 <code>minPriceYuan=990</code> 交给 SQL 过滤，模型只负责把中文翻成参数；无证据的场合直接拒答 —— <span class="quote" style="color:var(--cyan)">模型翻译，数据库计算</span></span></div></li>
+        <li><span class="idx" style="background:var(--cyan)">4</span>
+          <div class="txt"><b>AI 的答案不可核对</b><span>每个回答挂引用，引用带原文片段可展开；且「答案里列的单」与「引用挂的单」共用同一个函数与同一个截断上限 —— <span class="quote" style="color:var(--cyan)">答案与引用必须同源，漂移比不回答更伤</span></span></div></li>
+      </ul>
+    </div>
+  </section>
+
   <!-- ==================== Storyline ==================== -->
   <section class="story" id="story">
-    <h2>四个项目，一条技术主线</h2>
-    <p class="sub">不是四个散落的 Demo —— 从数据底座到业务应用，再往文档纵深与实时视觉延伸，四个项目串起了 AI 应用工程的完整链路</p>
+    <h2>五个项目，一条技术主线</h2>
+    <p class="sub">不是五个散落的 Demo —— 从数据底座到业务应用，再往文档纵深、实时视觉与系统工程延伸，五个项目串起了 AI 应用工程的完整链路</p>
     <div class="story-flow">
       <div class="story-node">
         <div class="stage" style="color:var(--blue)">Layer 1 · 数据底座</div>
@@ -731,6 +836,12 @@
         <div class="stage" style="color:var(--teal)">Layer 4 · 实时视觉</div>
         <h3>P5 车牌识别</h3>
         <p>第四个项目把 AI 从「会读」推到「会看」——接上摄像头，视频流边播边识别，车辆进出直接落成结构化事件。</p>
+        <span class="story-arrow">→</span>
+      </div>
+      <div class="story-node">
+        <div class="stage" style="color:var(--cyan)">Layer 5 · 系统工程</div>
+        <h3>P6 智能体商城</h3>
+        <p>第五个项目回到「系统工程」——把分布式事务、补偿对账、幂等与权限边界做扎实，再让智能体站在只读边界内做编排。</p>
       </div>
     </div>
   </section>
@@ -739,8 +850,8 @@
 
 <footer>
   <div class="note">
-    ◆ 关于本站：四个项目均已完成「需求 → 编码 → 容器化 → 上线部署」的完整闭环，源码开源在 GitHub，线上实例长期运行，可直接访问试用。<br>
-    技术栈、系统架构与指标详见各项目面板；P5 部署在纯 CPU 环境（无需 GPU），精度类指标待自有模型训练产出后补充。
+    ◆ 关于本站：五个项目均已完成「需求 → 编码 → 容器化 → 上线部署」的完整闭环，源码开源在 GitHub，线上实例长期运行，可直接访问试用。<br>
+    技术栈、系统架构与指标详见各项目面板；P5 部署在纯 CPU 环境（无需 GPU），精度类指标待自有模型训练产出后补充；P6 的 7 个部署单元与其他项目同机部署，全部服务仅绑回环、经 nginx 反代对外。
   </div>
 </footer>
 

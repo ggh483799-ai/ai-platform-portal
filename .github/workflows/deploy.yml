@@ -40,10 +40,10 @@ jobs:
             echo "HEALTH qiaokeshen.asia -> $code"
             case "$code" in 200|301|302) ;; *) echo "[ERROR] 门户异常: $code"; exit 1;; esac
 
-            # 四个项目子域：门户 Tab 背后必须都是活的
+            # 五个项目子域：门户 Tab 背后必须都是活的
             # 注意：内网 http 访问会 301 跳 https，判断不能写死 200（历史事故 run 34540128600）
             fail=0
-            for h in rag sc cr lpr; do
+            for h in rag sc cr lpr mall; do
               c=$(curl -s -o /dev/null -w '%{http_code}' --max-time 10 -H "Host: $h.qiaokeshen.asia" http://127.0.0.1/ || true)
               if [ -z "$c" ]; then c="000"; fi
               echo "HEALTH $h.qiaokeshen.asia -> $c"
